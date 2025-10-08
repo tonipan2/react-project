@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import httpClient from './httpClient';
 import { jwtDecode } from 'jwt-decode';
 
 function StudentDashboard({ userData, onLogout }) {
   const [applications, setApplications] = useState([]);
-  const [theses, setTheses] = useState([]); // State for theses
-  const [defendings, setDefendings] = useState([]); // State for defendings
-  const navigate = useNavigate(); // Initialize navigation hook
+  const [theses, setTheses] = useState([]);
+  const [defendings, setDefendings] = useState([]); 
+  const navigate = useNavigate(); 
   const [studentId, setStudentId] = useState(null);
 
   useEffect(() => {
@@ -98,7 +98,7 @@ function StudentDashboard({ userData, onLogout }) {
     }
   }, [studentId]);
 
-  // New effect for fetching defendings
+  // Fetching defendings
   useEffect(() => {
     const fetchDefendings = async () => {
       try {
@@ -262,3 +262,4 @@ function StudentDashboard({ userData, onLogout }) {
 }
 
 export default StudentDashboard;
+
