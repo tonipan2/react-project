@@ -5,16 +5,15 @@ import { jwtDecode } from 'jwt-decode';
 
 function Thesis() {
   const navigate = useNavigate();
-  const { applicationId } = useParams(); // Extract applicationId from the URL
+  const { applicationId } = useParams(); 
   const [thesisData, setThesisData] = useState({
     name: '',
     text: '',
     dateUploaded: '',
-    applicationId: null, // Will be set dynamically from the URL
+    applicationId: null,
   });
 
   useEffect(() => {
-    // Set applicationId in thesisData when the component mounts
     if (applicationId) {
       setThesisData((prev) => ({ ...prev, applicationId: parseInt(applicationId, 10) }));
     } else {
@@ -40,7 +39,7 @@ function Thesis() {
     try {
       const response = await httpClient.post('/thesis/add', thesisData, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`, // Add token to header
+          Authorization: `Bearer ${localStorage.getItem('token')}`, 
         },
       });
 
