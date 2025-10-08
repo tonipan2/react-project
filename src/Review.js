@@ -4,22 +4,22 @@ import httpClient from './httpClient';
 import {jwtDecode} from 'jwt-decode';
 
 function Review() {
-  const { thesisId } = useParams(); // Extract thesisId from the URL
+  const { thesisId } = useParams(); 
   const navigate = useNavigate();
   const [teacherId, setTeacherId] = useState(null);
   const [reviewData, setReviewData] = useState({
     text: '',
     dateUploaded: '',
     conclusion: '',
-    teacherId: null, // Set dynamically later
-    thesisId: null, // Set dynamically later
+    teacherId: null, 
+    thesisId: null, //We'll set later
   });
 
   useEffect(() => {
     // Fetch the teacher ID from the token
     const fetchTeacherId = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token
+        const token = localStorage.getItem('token'); 
         const decodedToken = jwtDecode(token);
         const usernameFromToken = decodedToken?.sub;
 
@@ -54,7 +54,7 @@ function Review() {
     const { name, value } = e.target;
     setReviewData((prevData) => ({
       ...prevData,
-      [name]: name === 'conclusion' ? value === 'true' : value, // Convert "true"/"false" string to boolean
+      [name]: name === 'conclusion' ? value === 'true' : value, 
     }));
   };
   
