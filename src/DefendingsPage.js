@@ -23,7 +23,7 @@ function DefendingPage({ userData }) {
   useEffect(() => {
     const fetchTeacherId = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token
+        const token = localStorage.getItem('token'); 
         const decodedToken = jwtDecode(token);
         const usernameFromToken = decodedToken?.sub;
   
