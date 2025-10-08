@@ -16,7 +16,7 @@ function TeacherDashboard({ userData, onLogout }) {
   const [defendings, setDefendings] = useState([]); 
   const [activePocket, setActivePocket] = useState(null);
   const [showDefendingForm, setShowDefendingForm] = useState(false); // Show/Hide the form
-  const [defendingDate, setDefendingDate] = useState(''); // Capture the defending date
+  const [defendingDate, setDefendingDate] = useState(''); 
   const [editingApplication, setEditingApplication] = useState(null); // Tracks the application being edited
   const [filterType, setFilterType] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
@@ -672,5 +672,6 @@ function TeacherDashboard({ userData, onLogout }) {
       </div>
   );
 }
+
 
 export default TeacherDashboard;
