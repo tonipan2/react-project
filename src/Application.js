@@ -10,8 +10,8 @@ function Application({ userData }) {
     aim: '',
     tasks: '',
     technologies: '',
-    studentId: '', // Will be selected from the dropdown
-    teacherId: '', // Will be fetched dynamically
+    studentId: '', 
+    teacherId: '', 
     acceptanceType: 'UNDEFINED', // Default value for acceptance
   });
 
@@ -21,14 +21,14 @@ function Application({ userData }) {
     // Fetch students from the backend
     const fetchStudents = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token
+        const token = localStorage.getItem('token'); 
         const response = await httpClient.get('/student/fetch/all', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
 
-        setStudents(response.data); // Populate the students array
+        setStudents(response.data); 
       } catch (error) {
         console.error('Error fetching students:', error);
         alert('Failed to load students. Please try again later.');
@@ -38,7 +38,7 @@ function Application({ userData }) {
     // Fetch the teacher ID based on the logged-in user's ID
     const fetchTeacherId = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve token
+        const token = localStorage.getItem('token'); 
         const decodedToken = jwtDecode(token);
         const usernameFromToken = decodedToken?.sub;
 
